@@ -3,7 +3,28 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>Home Page</h1>
-<a href="/projects" class="button">Go to Projects</a>
+<body>
+    <div class="wrapper">
+      
+      <div class="left">
+        {% load static %}
+        <img src="{% static 'images/KPPvkp-depth-1.jpg' %}" width="200">
+        <h1 class="name">Trevor Weger</h1>
+        <h4 class="subtitle">CS Student</h4>
+      </div>
+      
+      <div class="right">
+        <p class="bio">
+          Computer Science student, web developer, blah blah blah.
+          Thanks for visiting my website.
+        </p>
+        <ul class="social-links">
+          <li><a href="https://github.com/ianjsikes">Github</a></li>
+          <li><a href="https://medium.com/@ianjsikes">Medium</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </body>
 
 {% endblock %}
