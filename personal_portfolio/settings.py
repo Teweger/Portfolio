@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sendmail.apps.SendmailConfig', # 'sendmail' is the app for contacting site owner
     'projects.apps.ProjectsConfig', # 'projects' is the app for listing out a porfolio of projects
     'pages.apps.PagesConfig',
     'django.contrib.admin',
@@ -132,3 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / "uploads/"
 MEDIA_URL = "media/"
+
+# Email settings
+
+DEFAULT_FROM_EMAIL = "teweger@ucsc.edu"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
