@@ -1,4 +1,5 @@
 *.pyc
 *.jpg
-.venv/
+venv/
 *.sqlite3
+*/migrations/*
