@@ -1,26 +1,46 @@
-<!-- projects/templates/projects/project_index.html -->
-
 {% extends "base.html" %}
 
-{% block page_content %}
-<h1>Projects</h1>
-<div class="row">
-{% for project in projects %}
-    <div class="col-md-4">
-        <div class="card mb-2">
-            {% if project.image %}
-                <img class="card-img-top" src="{{ project.image.url }}">
-            {% endif %}
+{% block content %}
+<style>
+    .card {
+        height: 400px; /* Set a fixed height for the cards */
+    }
+
+    .card-img-container {
+        height: 200px; /* Set the desired height for the image container */
+        overflow: hidden; /* Hide any image overflow */
+    }
+
+    .no-image-placeholder {
+        height: 200px; /* Set the same height as card-img-container */
+        background-color: #f0f0f0; /* Set a background color for the placeholder */
+    }
+
+    .card-body {
+        height: 200px; /* Set a fixed height for the card body */
+    }
+</style>
+
+<div class="row" style="margin-top: 80px;">
+    {% for project in projects %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow">
+            <div class="card-img-container">
+                {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                {% else %}
+                    <div class="no-image-placeholder"></div>
+                {% endif %}
+            </div>
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
+                <a href="{% url 'project_detail' project.pk %}" class="btn btn-secondary">
                     Read More
                 </a>
             </div>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
