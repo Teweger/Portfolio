@@ -1,0 +1,4 @@
+*.pyc
+*.jpg
+.venv/
+*.sqlite3
