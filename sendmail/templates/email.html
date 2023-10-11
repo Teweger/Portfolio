@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center">Contact Me</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" style="margin-top: 20px;">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.name.id_for_label }}">Your Name</label>
+          {{ form.name }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.from_email.id_for_label }}">Your Email</label>
+          {{ form.from_email }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.subject.id_for_label }}">Subject</label>
+          {{ form.subject }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.message.id_for_label }}">Message</label>
+          {{ form.message }}
+        </div>
+        <button type="submit" class="btn btn-secondary">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
